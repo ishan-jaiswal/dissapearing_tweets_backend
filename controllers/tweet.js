@@ -27,12 +27,26 @@ exports.paginatedResults=(model)=>{
       try {
         results.results = await model.find().limit(limit).skip(startIndex).exec()
         const v=[];
+        const did=[];
         results.results.map((item,i)=>{
-          if(new Date(item.duration)>new Date(item.createdOn))
+          if(new Date(item.duration)>new Date())
           {                    
             v.push(item)
           }
+          else{
+            did.push(item._id);
+          }          
         });
+        did.map((item,i)=>{
+          Tweet.deleteOne({_id:item})
+            .exec()
+            .then(result=>{
+              console.log('deleted');
+            })
+            .catch(err=>{
+              console.log('deleteion  error');
+            })
+        })
         res.paginatedResults = v;
         next()
       } catch (e) {
