@@ -5,8 +5,9 @@
 # Example for inputing tweets
 `
 {
-	"task_name":"t1",
-	"task_description":"just checking",
+	"taskName":"t1",
+	"taskDescription":"just checking",
 	"creator":"devh",
 	"duration":"2020-10-08T18:50:01.706+00:00"
-}`
+}
+`
