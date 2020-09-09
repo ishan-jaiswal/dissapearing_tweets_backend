@@ -7,7 +7,7 @@ const tweetRoutes=require('./router/tweet');
 
 
 
-mongoose.connect('mongodb+srv://anonymous_media:anonymous_media@cluster0.9bc8x.mongodb.net/tweet',{ useNewUrlParser: true ,useUnifiedTopology: true})
+mongoose.connect('mongodb+srv://anonymous_media:'+process.env.MONGO_ATLAS_PW+'@cluster0.9bc8x.mongodb.net/tweet',{ useNewUrlParser: true ,useUnifiedTopology: true})
   .then(()=>{
     console.log('Connected to mongodb');
   })
